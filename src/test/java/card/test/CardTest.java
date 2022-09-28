@@ -9,28 +9,27 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CardTest {
 
-    private WebDriver driver;
+    WebDriver driver;
 
     @BeforeAll
-    public static void setUpAll () {
-        System.setProperty ("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
+    static void setupAll() {
+        WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
-    public void setUp () {
+    void setup() {
         driver = new ChromeDriver();
-        driver.manage().window().maximize();
     }
 
     @AfterEach
-    public void tearDown () {
+    void teardown() {
         driver.quit();
-        driver = null;
     }
 
     @Test
