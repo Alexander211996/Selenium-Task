@@ -10,7 +10,7 @@ build: off
 
 install:
   - java -jar app-order.jar &
+  - chmod +x gradlew
 
 build_script:
-  -  chmod +x gradlew
   - ./gradlew test --info 
